@@ -22,7 +22,10 @@ class Sql
         virtual ~Column();
     };
 
+    static const std::string integerType, dateType, textType;
+
     static std::vector<Column> getColumns();
+    static std::string getColumnString();
     static std::string getTableName();
 public:
     static std::string getCreateTableString();
