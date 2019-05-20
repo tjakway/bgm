@@ -1,3 +1,4 @@
+#see https://bitbucket.org/fenics-project/dolfin/issues/703/unknown-cmake-command
 include(CheckCXXCompilerFlag)
 
 function(enable_standalone_debug TARGET_NAME_PARAM)
