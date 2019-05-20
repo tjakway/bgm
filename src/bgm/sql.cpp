@@ -40,7 +40,7 @@ std::vector<Column> Sql::getColumns()
 
 std::string Sql::getCreateTableString()
 {
-    ostringstream ss;
+    std::ostringstream ss;
 
     ss << "CREATE TABLE " << getTableName() << "("
        << ""
