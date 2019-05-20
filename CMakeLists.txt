@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.1)
 
 project(bgm)
 
-#need to use our FindMsgpack.cmake script
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include("${CMAKE_SOURCE_DIR}/cmake/vars.cmake")
 include("${CMAKE_SOURCE_DIR}/cmake/common_defines.cmake")
