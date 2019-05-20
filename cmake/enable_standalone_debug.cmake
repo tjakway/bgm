@@ -1,3 +1,5 @@
+include(CheckCXXCompilerFlag)
+
 function(enable_standalone_debug TARGET_NAME_PARAM)
     add_flag_if_supported("${TARGET_NAME_PARAM}" "-fstandalone-debug")
 endfunction()
