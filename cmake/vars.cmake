@@ -1,15 +1,13 @@
 #define targets
-set(MAIN_LIB_TARGET city_game_lib)
-set(UTIL_LIB_TARGET city_game_util_lib)
-set(MAIN_EXE_TARGET city_game)
-set(DRAW_MANAGER_LIB_TARGET draw_manager_lib)
-set(TEST_LIB_TARGET test_lib_city_game)
-set(TEST_TARGET test_city_game)
-set(GEN_SHADERS_EXE_TARGET gen_shaders)
-set(RC_TEST_TARGET test_rc_city_game)
+set(MAIN_LIB_TARGET bgm_lib)
+set(UTIL_LIB_TARGET bgm_util_lib)
+set(MAIN_EXE_TARGET bgm)
+set(TEST_LIB_TARGET test_lib_bgm)
+set(TEST_TARGET test_bgm)
+set(RC_TEST_TARGET test_bgm_rc)
 
-set(RUN_TEST_TARGET run_city_game_test_target)
-set(RUN_RC_TEST_TARGET run_city_game_rc_test_target)
+set(RUN_TEST_TARGET run_bgm_test_target)
+set(RUN_RC_TEST_TARGET run_bgm_rc_test_target)
 
 #set language options
 set(CMAKE_C_STANDARD 11)
