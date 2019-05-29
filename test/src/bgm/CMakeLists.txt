@@ -9,11 +9,11 @@ enable_testing()
 
 add_library(${TEST_LIB_TARGET} ${TEST_SRC})
 
-#need at least one source file to build an executable
-#see https://stackoverflow.com/questions/34234446/cmake-is-it-possible-to-build-an-executable-from-only-static-libraries-and-no-s
-add_executable(${TEST_TARGET} ${TEST_EXE_SRC})
 
 target_include_directories(${TEST_LIB_TARGET} 
     PRIVATE ${TESTS_INCLUDE_DIR})
+target_link_libraries(${TEST_LIB_TARGET} PUBLIC ${MAIN_LIB_TARGET})
 
 apply_common_defines(${TEST_LIB_TARGET})
+
+add_subdirectory(gtest)

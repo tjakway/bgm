@@ -10,6 +10,7 @@ include("${CMAKE_SOURCE_DIR}/cmake/enable_standalone_debug.cmake")
 include("${CMAKE_SOURCE_DIR}/cmake/process_warnings.cmake")
 include("${CMAKE_SOURCE_DIR}/cmake/clang_libstdcpp_hack.cmake")
 include("${CMAKE_SOURCE_DIR}/cmake/depends_spdlog.cmake")
+include("${CMAKE_SOURCE_DIR}/cmake/depends_gtest.cmake")
 include("${CMAKE_SOURCE_DIR}/cmake/target_set_cxx_standard.cmake")
 
 
