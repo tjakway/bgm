@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <string>
 #include <functional>
+#include <numeric>
 
 BEGIN_BGM_NS
 
@@ -53,17 +54,18 @@ std::vector<Sql::Column> Sql::getColumns()
 std::string Sql::getColumnString()
 {
     const auto reduceF = 
-        [](const Column& a,
-           const Column& b)
+        [](const std::string& acc,
+           const Column& a)
         {
             std::ostringstream ss;
-            ss << a.printColumn() << ", " << b.printColumn();
+            ss << acc << a.printColumn() << ", " << b.printColumn();
             return ss.str();
         };
 
     const std::vector<Column> columns = getColumns();
-    const std::string res = std::reduce(columns::cbegin(),
-            columns::cend(), reduceF);
+    const std::string empty;
+    const std::string res = std::accumulate(columns.cbegin(),
+            columns.cend(), empty, reduceF);
     return res;
 }
 
