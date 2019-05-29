@@ -5,6 +5,7 @@
 #include <string>
 #include <functional>
 #include <numeric>
+#include <vector>
 
 BEGIN_BGM_NS
 
@@ -53,20 +54,38 @@ std::vector<Sql::Column> Sql::getColumns()
 
 std::string Sql::getColumnString()
 {
+    std::vector<std::string> empty;
+
+    const std::string divider = ", ";
     const auto reduceF = 
-        [](const std::string& acc,
+        [divider](std::vector<std::string>& acc,
            const Column& a)
         {
-            std::ostringstream ss;
-            ss << acc << a.printColumn() << ", " << b.printColumn();
-            return ss.str();
+            acc.emplace_back(a.printColumn());
+            acc.emplace_back(divider);
+            return acc;
         };
 
     const std::vector<Column> columns = getColumns();
-    const std::string empty;
-    const std::string res = std::accumulate(columns.cbegin(),
+    std::vector<std::string> accumulatedStrings = 
+        std::accumulate(columns.cbegin(),
             columns.cend(), empty, reduceF);
-    return res;
+    
+    //remove the last divider
+    if(accumulatedStrings.size() > 0 &&
+            accumulatedStrings.back() == divider)
+    {
+        accumulatedStrings.pop_back();
+    }
+
+    //combine the strings
+    std::ostringstream ss;
+    for(const auto& x : accumulatedStrings)
+    {
+        ss << x;
+    }
+
+    return ss.str();
 }
 
 std::string Sql::getCreateTableString()
